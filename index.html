@@ -69,15 +69,44 @@ svg { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; s
 .row.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); padding: 20px 18px; }
 .row.primary .ic { background: rgba(255,255,255,.18); color: var(--on-accent); }
 .row.primary span { color: var(--on-accent); opacity: .85; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* Small phones */
+@media (max-width: 360px) {
+  main { padding: 40px 16px 32px; }
+  .row { padding: 14px; gap: 12px; }
+  .row.primary { padding: 16px 14px; }
+  .row b { font-size: 16px; }
+}
+
+/* Tablets and laptops: name on the left, links on the right */
+@media (min-width: 760px) {
+  main {
+    max-width: 1000px; min-height: 100vh; padding: 48px 40px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+  }
+  h1 { font-size: clamp(84px, 10vw, 128px); }
+  .where { margin: 24px 0 0; font-size: 18px; }
+  .links { gap: 14px; }
+}
+
+/* Short landscape phones */
+@media (max-height: 480px) and (orientation: landscape) {
+  main { padding-top: 24px; padding-bottom: 24px; }
+  h1 { font-size: 56px; }
+  .where { margin-bottom: 20px; }
+}
 </style>
 </head>
 <body>
 <main>
+  <header>
   <h1>Robin<br>Khoury</h1>
   <p class="where">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
     Lebanon
   </p>
+  </header>
 
   <nav class="links" aria-label="Contact links">
     <a class="row primary" href="https://wa.me/96181586848" target="_blank" rel="noopener">
